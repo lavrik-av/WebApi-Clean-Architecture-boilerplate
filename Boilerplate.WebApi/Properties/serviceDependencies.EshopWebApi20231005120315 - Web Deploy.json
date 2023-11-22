@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "apis1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/EshopWebApi20231005120315-apim/apis/eshopwebapi20231005120315",
+      "type": "apis.azure"
+    },
+    "mssql2": {
+      "serviceConnectorResourceId": "",
+      "secretStore": "AzureAppSettings",
+      "type": "mssql.onprem",
+      "connectionId": "ConnectionStrings:DefaultConnectionAzure"
+    },
+    "mssql1": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:DefaultConnection2",
+      "dynamicId": null
+    },
+    "mssql3": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:DefaultConnection"
+    }
+  }
+}
