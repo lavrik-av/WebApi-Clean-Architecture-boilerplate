@@ -1,10 +1,9 @@
-﻿using Eshop.Application.Common.Filters.AuxParams;
-using Eshop.Application.Interfaces;
-using Eshop.Application.Interfaces.Repositories;
-using Eshop.Domain.Enitities;
-using Eshop.Domain.Enitities.ProductEnitties;
+﻿using Boilerplate.Application.Common.Filters.AuxParams;
+using Boilerplate.Application.Interfaces;
+using Boilerplate.Application.Interfaces.Repositories;
+using Boilerplate.Domain.Enitities;
 
-namespace Eshop.Persistence.Data
+namespace Boilerplate.Persistence.Data
 {
     public static class UnitOfWorkExtensions
     {

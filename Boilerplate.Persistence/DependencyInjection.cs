@@ -1,8 +1,8 @@
-﻿using Eshop.Application.Interfaces;
-using Eshop.Persistence.Data;
+﻿using Boilerplate.Application.Interfaces;
+using Boilerplate.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Eshop.Persistence
+namespace Boilerplate.Persistence
 {
     public static class DependencyInjection
     {
@@ -10,13 +10,13 @@ namespace Eshop.Persistence
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                //localhost DB
-                // options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+                //local MS SQL Server
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
 
-                // Connect with MySql server                
-                 options.UseMySQL(configuration.GetConnectionString("MySqlConnection"));
+                // local MySql server                
+                // options.UseMySQL(configuration.GetConnectionString("MySqlConnection"));
 
-                // Azure DB
+                // Azure MS SQL Server
                 // options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionAzure"));
             });
 

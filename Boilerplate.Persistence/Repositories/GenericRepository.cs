@@ -1,24 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Eshop.Persistence.Data;
-using Eshop.Application.Interfaces.Repositories;
-using Eshop.Application.Common.Extensions;
-using Eshop.Application.Common.Filters;
+using Boilerplate.Persistence.Data;
+using Boilerplate.Application.Interfaces.Repositories;
+using Boilerplate.Application.Common.Extensions;
+using Boilerplate.Application.Common.Filters;
 using Microsoft.EntityFrameworkCore.Query;
-using Eshop.Application.Common.Filters.AuxParams;
-using Eshop.Application.Common;
-using Microsoft.AspNetCore.Http.Features;
-using Eshop.Domain.Enitities.ProductEnitties;
-using System.Linq;
-using Eshop.Application.Interfaces;
+using Boilerplate.Application.Common.Filters.AuxParams;
+using Boilerplate.Application.Interfaces;
 
-namespace Eshop.Persistence.Repositories
+namespace Boilerplate.Persistence.Repositories
 {
-
-    class Pet
-    {
-    public string Name { get; set; }
-    public int Age { get; set; }
-}
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         public ApplicationDbContext _context;
@@ -140,10 +130,10 @@ namespace Eshop.Persistence.Repositories
             return base.ToString();
         }
 
-        public async Task<Guid> UpdateAsync(TEntity entity, CancellationToken cancellationToken)
+        public Task<Guid> UpdateAsync(TEntity entity, CancellationToken cancellationToken)
         {
             var result = _dBSet.Update(entity);
-            return (Guid)result.Entity.GetType().GetProperty("Id").GetValue(result.Entity);
+            return Task.FromResult((Guid)result.Entity.GetType().GetProperty("Id").GetValue(result.Entity));
         }
         public async Task<Guid> UpdateAsyncOld(TEntity entity, CancellationToken cancellationToken)
         {

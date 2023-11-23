@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace Eshop.Persistence.Data
+namespace Boilerplate.Persistence.Data
 {
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
     {

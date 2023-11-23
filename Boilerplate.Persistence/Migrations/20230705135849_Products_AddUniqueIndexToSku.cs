@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Eshop.Persistence.Migrations
+namespace Boilerplate.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class Products_AddUniqueIndexToSku : Migration

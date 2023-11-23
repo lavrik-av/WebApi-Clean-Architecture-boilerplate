@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations.Operations;
 
 #nullable disable
 
-namespace Eshop.Persistence.Migrations
+namespace Boilerplate.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class Order_RemoveProductIdfield : Migration

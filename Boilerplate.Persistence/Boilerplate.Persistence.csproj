@@ -24,7 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Eshop.Application\Interlocuter.Application.csproj" />
+    <ProjectReference Include="..\Boilerplate.Application\Boilerplate.Application.csproj" />
+    <ProjectReference Include="..\Boilerplate.Domain\Boilerplate.Domain.csproj" />
   </ItemGroup>
 
 </Project>

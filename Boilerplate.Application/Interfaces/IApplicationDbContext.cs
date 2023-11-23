@@ -5,7 +5,7 @@ namespace Boilerplate.Application.Interfaces
 {
     public interface IApplicationDbContext
     {
-        public DbSet<ComplexQueryModel> Entities { get; set; }
+        public DbSet<ComplexQueryModel> QueryEntities { get; set; }
         void Dispose();
     }
 }

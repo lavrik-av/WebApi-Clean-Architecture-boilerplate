@@ -1,29 +1,15 @@
-﻿using Eshop.Application.Common.Filters;
-using Eshop.Application.Common.Filters.AuxParams;
-using Eshop.Application.Interfaces;
-using Eshop.Application.Interfaces.Repositories;
-using Eshop.Domain.Enitities;
-using Eshop.Domain.Enitities.ProductEnitties;
-using Eshop.Persistence.Repositories;
-using Microsoft.Identity.Client;
+﻿using Boilerplate.Application.Interfaces;
+using Boilerplate.Application.Interfaces.Repositories;
+using Boilerplate.Persistence.Repositories;
 
-namespace Eshop.Persistence.Data
+namespace Boilerplate.Persistence.Data
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _context;
 
         protected Dictionary<Type, object> _repositories;
-
-        public IProductsRepository ProductsRepository { get; private set; }
-
-        public ICustomersRepository CustomersRepository { get; private set; }
-
-        public IOrdersRepository OrdersRepository { get; private set; }
-
-        public IOrderProductRepository OrderProductRepository { get; private set; }
-
-        public IPostsRepository PostsRepository { get; private set; }
+        public IEntitiesRepository EntitiesRepository { get; private set; }
 
         public IApplicationDbContext DbContext { get; }
 
@@ -35,22 +21,8 @@ namespace Eshop.Persistence.Data
 
             _repositories = new Dictionary<Type, object>();
 
-            // TODO try to set all of them using a loop using Reflection
-
-            ProductsRepository = new ProductsRepository(_context);
-            _repositories.Add(ProductsRepository.RepositoryType, ProductsRepository);
-
-            CustomersRepository = new CustomersRepository(_context);
-            _repositories.Add(CustomersRepository.RepositoryType, CustomersRepository);
-
-            OrdersRepository = new OrdersRepository(_context);
-            _repositories.Add(OrdersRepository.RepositoryType, OrdersRepository);
-
-            OrderProductRepository = new OrderProductRepository(_context);
-            _repositories.Add(OrderProductRepository.RepositoryType, OrderProductRepository);
-
-            PostsRepository = new PostsRepository(_context);
-            _repositories.Add(PostsRepository.RepositoryType, PostsRepository);
+            EntitiesRepository = new EntitiesRepository(_context);
+            _repositories.Add(EntitiesRepository.RepositoryType, EntitiesRepository);
         }
 
         public void Dispose()

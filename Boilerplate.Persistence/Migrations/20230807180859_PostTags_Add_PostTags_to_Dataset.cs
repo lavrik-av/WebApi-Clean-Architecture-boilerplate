@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Eshop.Persistence.Migrations
+namespace Boilerplate.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class PostTags_Add_PostTags_to_Dataset : Migration

@@ -1,6 +1,5 @@
 ﻿using Boilerplate.Application.Common;
 using Boilerplate.Application.Interfaces;
-using Boilerplate.Domain.Enitities.Entity;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,7 +19,7 @@ namespace Boilerplate.Application.EnititiesCommandsQueries.ComplexQuery.Queries
 
             var context = _unitOfWork.DbContext;
 
-            IQueryable<ComplexQueryModel> entities = context.Entities
+            IQueryable<ComplexQueryModel> entities = context.QueryEntities
                 .FromSqlRaw("SELECT * FROM Entities");
 
             var entitiesResultList = entities.ToList();

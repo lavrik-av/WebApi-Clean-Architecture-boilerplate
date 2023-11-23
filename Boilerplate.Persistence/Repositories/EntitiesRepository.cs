@@ -1,17 +1,17 @@
-﻿using Eshop.Application.Interfaces.Repositories;
-using Eshop.Domain.Enitities.ProductEnitties;
-using Eshop.Persistence.Data;
+﻿using Boilerplate.Domain.Enitities.Entity;
+using Boilerplate.Application.Interfaces.Repositories;
+using Boilerplate.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Eshop.Persistence.Repositories
+namespace Boilerplate.Persistence.Repositories
 {
-    public class ProductsRepository : GenericRepository<Product>, IProductsRepository
+    public class EntitiesRepository : GenericRepository<Entity>, IEntitiesRepository
     {
-        public ProductsRepository(ApplicationDbContext context) : base(context)
+        public EntitiesRepository(ApplicationDbContext context) : base(context)
         {
         }
 
-        public async Task<Guid> _UpdateAsync(Product entity, CancellationToken cancellationToken)
+        public async Task<Guid> _UpdateAsync(Entity entity, CancellationToken cancellationToken)
         {
             var product = await _dBSet.FirstOrDefaultAsync(product => product.Id == entity.Id, cancellationToken);
 

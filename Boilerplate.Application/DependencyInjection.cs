@@ -4,7 +4,7 @@ using FluentValidation;
 using MediatR;
 using System.Reflection;
 
-namespace Eshop.Application
+namespace Boilerplate.Application
 {
     public static class DependencyInjection
     {

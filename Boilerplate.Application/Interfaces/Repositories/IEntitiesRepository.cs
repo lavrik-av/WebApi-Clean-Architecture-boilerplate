@@ -1,9 +1,9 @@
 ﻿using Boilerplate.Application.Interfaces.Repositories;
 using Boilerplate.Domain.Enitities.Entity;
 
-namespace Eshop.Application.Interfaces.Repositories
+namespace Boilerplate.Application.Interfaces.Repositories
 {
-    public interface IEntityRepository : IGenericRepository<Entity>
+    public interface IEntitiesRepository : IGenericRepository<Entity>
     {
         IQueryable<Entity> GetDbSet();
     }

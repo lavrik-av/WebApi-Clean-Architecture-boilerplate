@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Eshop.Persistence.Migrations
+namespace Boilerplate.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class Orders_ProductsAdd_Column_Id : Migration

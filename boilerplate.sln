@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boilerplate.Domain", "Boile
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boilerplate.Application", "Boilerplate.Application\Boilerplate.Application.csproj", "{DCC42581-2798-4073-9022-84ABC4905AB5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boilerplate.Persistence", "Boilerplate.Persistence\Boilerplate.Persistence.csproj", "{35B0BDCA-1E53-4AC5-888E-7F9DA96905BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DCC42581-2798-4073-9022-84ABC4905AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCC42581-2798-4073-9022-84ABC4905AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCC42581-2798-4073-9022-84ABC4905AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35B0BDCA-1E53-4AC5-888E-7F9DA96905BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35B0BDCA-1E53-4AC5-888E-7F9DA96905BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35B0BDCA-1E53-4AC5-888E-7F9DA96905BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35B0BDCA-1E53-4AC5-888E-7F9DA96905BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0FAEE635-4B03-41B6-9AD5-1392C9C55B2A} = {C496EA56-4B12-45E8-9E27-03318FD87637}
 		{DCC42581-2798-4073-9022-84ABC4905AB5} = {C496EA56-4B12-45E8-9E27-03318FD87637}
+		{35B0BDCA-1E53-4AC5-888E-7F9DA96905BB} = {2EAD6746-E1D1-46A2-92A6-F3C5FC2888FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4FECF354-951C-479A-BDAE-9B77108E8F6D}
