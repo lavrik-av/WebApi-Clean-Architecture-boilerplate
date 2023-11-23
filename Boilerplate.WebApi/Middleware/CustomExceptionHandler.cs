@@ -1,11 +1,11 @@
-﻿using Eshop.Application.Common;
-using Eshop.Application.Common.Constants.Common;
-using Eshop.Application.Common.Exceptions;
+﻿using Boilerplate.Application.Common;
+using Boilerplate.Application.Common.Constants.Common;
+using Boilerplate.Application.Common.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Text.Json;
 
-namespace Eshop.WebApi.Middleware
+namespace Boilerplate.WebApi.Middleware
 {
     public class CustomExceptionHandler
     {

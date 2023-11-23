@@ -1,4 +1,4 @@
-﻿namespace Eshop.WebApi.Definitions.UoW
+﻿namespace Boilerplate.WebApi.Definitions.UoW
 {
     /// <summary>
     /// Register UnitOfWork as service

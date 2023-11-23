@@ -1,23 +1,15 @@
 // --------------------------------------------------------------------
-// Name: Template for Micro service on ASP.NET Core API with
-// Author: Alex Lavrik © 2005-2023 Calabonga SOFT
-// Version: 7.0.2
-// Based on: .NET 7.0.x
-// --------------------------------------------------------------------
-// Contacts
-// --------------------------------------------------------------------
-// Description:
-// This template implements Web API 
-// functionality. Also, support two type of Authentication:
-// Cookie and Bearer
+// Name: Boilerplate for WebAPI built on Clear Architecutre pattern
+// Author: Alex Lavrik © 2023
+// Based on: .NET 7.x.x
 // --------------------------------------------------------------------
 
-using Eshop.Application;
-using Eshop.WebApi.Definitions.AppDefinitionExtensions;
-using Eshop.WebApi;
-using Eshop.Persistence;
-using Eshop.WebApi.Middleware;
-using Eshop.WebApi.JsonConverters;
+using Boilerplate.Application;
+using Boilerplate.WebApi.Definitions.AppDefinitionExtensions;
+using Boilerplate.WebApi;
+using Boilerplate.Persistence;
+using Boilerplate.WebApi.Middleware;
+using Boilerplate.WebApi.JsonConverters;
 using System.Text.Json.Serialization;
 using Autofac;
 

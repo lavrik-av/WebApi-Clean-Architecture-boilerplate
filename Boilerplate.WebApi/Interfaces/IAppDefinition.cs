@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Eshop.WebApi.Interfaces
+namespace Boilerplate.WebApi.Interfaces
 {
     internal interface IAppDefinition
     {

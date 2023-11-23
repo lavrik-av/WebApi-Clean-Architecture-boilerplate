@@ -1,7 +1,7 @@
-﻿using Eshop.Application.Interfaces;
-using Eshop.WebApi.GenericTypeMediatR;
+﻿using Boilerplate.Application.Interfaces;
+using Boilerplate.WebApi.GenericTypeMediatR;
 
-namespace Eshop.WebApi
+namespace Boilerplate.WebApi
 {
     public static class DependencyInjection
     {

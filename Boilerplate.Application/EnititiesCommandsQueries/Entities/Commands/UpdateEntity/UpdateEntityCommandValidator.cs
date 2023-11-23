@@ -2,9 +2,9 @@
 
 namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.UpdateProduct
 {
-    public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
+    public class UpdateEntityCommandValidator : AbstractValidator<UpdateEntityCommand>
     {
-        public UpdateProductCommandValidator() {
+        public UpdateEntityCommandValidator() {
 
             RuleFor(command => command.Model.Id)
                 .NotEmpty()

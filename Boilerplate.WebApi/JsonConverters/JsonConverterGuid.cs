@@ -1,9 +1,9 @@
-﻿using Eshop.Application.Common.Constants.Common;
+﻿using Boilerplate.Application.Common.Constants.Common;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
-namespace Eshop.WebApi.JsonConverters
+namespace Boilerplate.WebApi.JsonConverters
 {
     public class JsonConverterGuid : JsonConverter<Guid>
     {

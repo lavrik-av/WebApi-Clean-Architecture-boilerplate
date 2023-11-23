@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Eshop.WebApi.Interfaces;
+using Boilerplate.WebApi.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Eshop.WebApi.Definitions.AppDefinitionExtensions
+namespace Boilerplate.WebApi.Definitions.AppDefinitionExtensions
 {
     public static class AppDefinitionExtensions
     {

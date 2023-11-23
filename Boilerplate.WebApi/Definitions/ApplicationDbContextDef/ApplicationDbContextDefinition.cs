@@ -1,4 +1,4 @@
-﻿namespace Eshop.WebApi.Definitions.ApplicationDbContextDef
+﻿namespace Boilerplate.WebApi.Definitions.ApplicationDbContextDef
 {
     /// <summary>
     /// Register ApplicationDbContext and initilize DB Connection

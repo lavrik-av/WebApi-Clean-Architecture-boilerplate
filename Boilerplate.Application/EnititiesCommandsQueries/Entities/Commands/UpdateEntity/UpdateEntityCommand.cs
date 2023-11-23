@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.UpdateProduct
 {
-    public record UpdateProductCommand(UpdateProductModel Model)
+    public record UpdateEntityCommand(UpdateEntityModel Model)
         : IRequest<OperationResult<EntityDto>>
     {
     }

@@ -1,4 +1,4 @@
-﻿namespace Eshop.WebApi.Middleware
+﻿namespace Boilerplate.WebApi.Middleware
 {
     public static class CustomExcepionHandlerExtensions
     {

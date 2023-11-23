@@ -1,8 +1,8 @@
-﻿using Eshop.Persistence.Data;
-using Eshop.Application.Interfaces;
+﻿using Boilerplate.Persistence.Data;
+using Boilerplate.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Eshop.WebApi.Definitions.ApplicationDbContextDef
+namespace Boilerplate.WebApi.Definitions.ApplicationDbContextDef
 {
     public static class ApplicationDbContextServiceCollectionExtensions
     {

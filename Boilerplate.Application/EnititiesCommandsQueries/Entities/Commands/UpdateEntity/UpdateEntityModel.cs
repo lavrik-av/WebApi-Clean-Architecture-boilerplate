@@ -2,7 +2,7 @@
 
 namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.UpdateProduct
 {
-    public class UpdateProductModel
+    public class UpdateEntityModel
     {
         private decimal _price = 0;
         [Required]

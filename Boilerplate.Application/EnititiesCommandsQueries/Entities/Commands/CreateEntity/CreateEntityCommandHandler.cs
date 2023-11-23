@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Boilerplate.Application.Common;
+using Boilerplate.Application.Common.Constants.Common;
 using Boilerplate.Application.Common.Constants.Entity;
+using Boilerplate.Application.Common.Exceptions;
 using Boilerplate.Application.Dto.Entity;
 using Boilerplate.Application.Interfaces;
 using Boilerplate.Domain.Enitities.Entity;
@@ -24,10 +26,10 @@ namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.Cre
         public async Task<OperationResult<EntityDto>> Handle(CreateEntityCommand request, CancellationToken cancellationToken)
         {
 
-            var product = await _unitOfWork.EntitiesRepository.AddAsync(CreateProductObject(request), cancellationToken);
-            var error = "Something went wrong...";
+            var entity = await _unitOfWork.EntitiesRepository.AddAsync(_mapper.Map<Entity>(request.Model), cancellationToken);
+            var error = CommonConstans.SOMETHING_WENT_WRONG;
 
-            if (product != null)
+            if (entity != null)
             {
                 try
                 {
@@ -35,29 +37,15 @@ namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.Cre
                 }
                 catch (Exception exception)
                 {
-                    error = exception.Message;
-                    return OperationResult.CreateErrorResult<EntityDto>(new Dictionary<string, string[]>() { [EntityConstants.ENTITY_CREATION_ERROR] = new string[] { error } });
+                    throw new DbException(exception);
                 }
 
-                return OperationResult.CreateResult(_mapper.Map<EntityDto>(product));
+                return OperationResult.CreateResult(_mapper.Map<EntityDto>(entity));
             }
             else
             {
                 return OperationResult.CreateErrorResult<EntityDto>(new Dictionary<string, string[]>() { [EntityConstants.UNKNOWN_ERROR] = new string[] { error } });
             }
         }
-
-        private Entity CreateProductObject(CreateEntityCommand request)
-        {
-            return new Entity
-            {
-                Name = request.Model.Name,
-                Description = request.Model.Description,
-                Sku = request.Model.Sku,
-                Price = request.Model.Price,
-                Published = true
-            };
-        }
-
     }
 }

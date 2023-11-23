@@ -22,75 +22,13 @@ namespace Boilerplate.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CategoryProduct", b =>
-                {
-                    b.Property<Guid>("CategoriesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ProductsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("CategoriesId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("CategoryProduct");
-                });
-
-            modelBuilder.Entity("Eshop.Domain.Enitities.CategoryEntities.Category", b =>
+            modelBuilder.Entity("Boilerplate.Application.EnititiesCommandsQueries.ComplexQuery.Queries.ComplexQueryModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Category");
-                });
-
-            modelBuilder.Entity("Eshop.Domain.Enitities.CusomerEntities.Customer", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Customers");
-                });
-
-            modelBuilder.Entity("Eshop.Domain.Enitities.OrderEntities.Order", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CustomerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("Discount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Notes")
+                    b.Property<string>("Customer")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -98,69 +36,18 @@ namespace Boilerplate.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Subtotal")
+                    b.Property<int>("ProductsCount")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("Summary")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("Total")
-                        .HasColumnType("decimal(18,2)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId");
-
-                    b.ToTable("Orders");
+                    b.ToTable("QueryEntities");
                 });
 
-            modelBuilder.Entity("Eshop.Domain.Enitities.OrderEntities.OrdersProducts", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("OrdersId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ProductsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("OrdersProducts");
-                });
-
-            modelBuilder.Entity("Eshop.Domain.Enitities.PostEntities.Post", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Posts");
-                });
-
-            modelBuilder.Entity("Eshop.Domain.Enitities.PostEntities.PostTag", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("PostId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("TagId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PostTags");
-                });
-
-            modelBuilder.Entity("Eshop.Domain.Enitities.ProductEnitties.Product", b =>
+            modelBuilder.Entity("Boilerplate.Domain.Enitities.Entity.Entity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -198,10 +85,10 @@ namespace Boilerplate.Persistence.Migrations
                     b.HasIndex("Sku")
                         .IsUnique();
 
-                    b.ToTable("Products");
+                    b.ToTable("Entities");
                 });
 
-            modelBuilder.Entity("Eshop.Domain.Enitities.ProductEnitties.ProductMedia", b =>
+            modelBuilder.Entity("Boilerplate.Domain.Enitities.Entity.EntityMedia", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -222,21 +109,7 @@ namespace Boilerplate.Persistence.Migrations
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductMedia");
-                });
-
-            modelBuilder.Entity("Eshop.Domain.Enitities.TagEnities.Tag", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid?>("ProductsId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Title")
@@ -245,7 +118,9 @@ namespace Boilerplate.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tags");
+                    b.HasIndex("ProductsId");
+
+                    b.ToTable("EntityMedia");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -446,69 +321,11 @@ namespace Boilerplate.Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("OrderProduct", b =>
+            modelBuilder.Entity("Boilerplate.Domain.Enitities.Entity.EntityMedia", b =>
                 {
-                    b.Property<Guid>("OrdersId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ProductsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("OrdersId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("OrderProduct");
-                });
-
-            modelBuilder.Entity("PostTag", b =>
-                {
-                    b.Property<Guid>("PostId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("TagId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("PostId", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("PostTag");
-                });
-
-            modelBuilder.Entity("CategoryProduct", b =>
-                {
-                    b.HasOne("Eshop.Domain.Enitities.CategoryEntities.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Eshop.Domain.Enitities.ProductEnitties.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Eshop.Domain.Enitities.OrderEntities.Order", b =>
-                {
-                    b.HasOne("Eshop.Domain.Enitities.CusomerEntities.Customer", "Customer")
-                        .WithMany("Orders")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Customer");
-                });
-
-            modelBuilder.Entity("Eshop.Domain.Enitities.ProductEnitties.ProductMedia", b =>
-                {
-                    b.HasOne("Eshop.Domain.Enitities.ProductEnitties.Product", "Products")
+                    b.HasOne("Boilerplate.Domain.Enitities.Entity.Entity", "Products")
                         .WithMany("ProductMedia")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductsId");
 
                     b.Navigation("Products");
                 });
@@ -564,42 +381,7 @@ namespace Boilerplate.Persistence.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("OrderProduct", b =>
-                {
-                    b.HasOne("Eshop.Domain.Enitities.OrderEntities.Order", null)
-                        .WithMany()
-                        .HasForeignKey("OrdersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Eshop.Domain.Enitities.ProductEnitties.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("PostTag", b =>
-                {
-                    b.HasOne("Eshop.Domain.Enitities.PostEntities.Post", null)
-                        .WithMany()
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Eshop.Domain.Enitities.TagEnities.Tag", null)
-                        .WithMany()
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Eshop.Domain.Enitities.CusomerEntities.Customer", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("Eshop.Domain.Enitities.ProductEnitties.Product", b =>
+            modelBuilder.Entity("Boilerplate.Domain.Enitities.Entity.Entity", b =>
                 {
                     b.Navigation("ProductMedia");
                 });

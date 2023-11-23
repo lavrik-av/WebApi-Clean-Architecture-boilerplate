@@ -21,9 +21,9 @@ namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.GetP
 
         public async Task<OperationResult<IList<EntityDto>>> Handle(GetEntitiesQuery request, CancellationToken cancellationToken)
         {
-            var products = await _unitOfWork.EntitiesRepository.GetAllAsync();
+            var entities = await _unitOfWork.EntitiesRepository.GetAllAsync();
             return OperationResult.CreateResult<IList<EntityDto>>(
-                    products.Select(product => _mapper.Map<EntityDto>(product)).ToList()
+                    entities.Select(entity => _mapper.Map<EntityDto>(entity)).ToList()
                 );
         }
     }

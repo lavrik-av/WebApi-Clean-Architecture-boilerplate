@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Boilerplate.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class initialmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -51,45 +51,36 @@ namespace Boilerplate.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Entities",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Category", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Customers",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Customers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Products",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Sku = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Sku = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Published = table.Column<bool>(type: "bit", nullable: false)
+                    Published = table.Column<bool>(type: "bit", nullable: false),
+                    Created = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.PrimaryKey("PK_Entities", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "QueryEntities",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Number = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductsCount = table.Column<int>(type: "int", nullable: false),
+                    Customer = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Summary = table.Column<decimal>(type: "decimal(18,2)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_QueryEntities", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -199,57 +190,12 @@ namespace Boilerplate.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Number = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Discount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Subtotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Orders", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Orders_Customers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "Customers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CategoryProduct",
-                columns: table => new
-                {
-                    CategoriesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProductsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CategoryProduct", x => new { x.CategoriesId, x.ProductsId });
-                    table.ForeignKey(
-                        name: "FK_CategoryProduct_Category_CategoriesId",
-                        column: x => x.CategoriesId,
-                        principalTable: "Category",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CategoryProduct_Products_ProductsId",
-                        column: x => x.ProductsId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProductMedia",
+                name: "EntityMedia",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProductsId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -257,37 +203,12 @@ namespace Boilerplate.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductMedia", x => x.Id);
+                    table.PrimaryKey("PK_EntityMedia", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductMedia_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "OrdersProducts",
-                columns: table => new
-                {
-                    OrdersId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProductsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_OrderProduct", x => new { x.OrdersId, x.ProductsId });
-                    table.ForeignKey(
-                        name: "FK_OrderProduct_Orders_OrdersId",
-                        column: x => x.OrdersId,
-                        principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_OrderProduct_Products_ProductsId",
+                        name: "FK_EntityMedia_Entities_ProductsId",
                         column: x => x.ProductsId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalTable: "Entities",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -330,24 +251,21 @@ namespace Boilerplate.Persistence.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CategoryProduct_ProductsId",
-                table: "CategoryProduct",
+                name: "IX_Entities_Name",
+                table: "Entities",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Entities_Sku",
+                table: "Entities",
+                column: "Sku",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EntityMedia_ProductsId",
+                table: "EntityMedia",
                 column: "ProductsId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderProduct_ProductsId",
-                table: "OrdersProducts",
-                column: "ProductsId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orders_CustomerId",
-                table: "Orders",
-                column: "CustomerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductMedia_ProductId",
-                table: "ProductMedia",
-                column: "ProductId");
         }
 
         /// <inheritdoc />
@@ -369,13 +287,10 @@ namespace Boilerplate.Persistence.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "CategoryProduct");
+                name: "EntityMedia");
 
             migrationBuilder.DropTable(
-                name: "OrdersProducts");
-
-            migrationBuilder.DropTable(
-                name: "ProductMedia");
+                name: "QueryEntities");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -384,16 +299,7 @@ namespace Boilerplate.Persistence.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Category");
-
-            migrationBuilder.DropTable(
-                name: "Orders");
-
-            migrationBuilder.DropTable(
-                name: "Products");
-
-            migrationBuilder.DropTable(
-                name: "Customers");
+                name: "Entities");
         }
     }
 }

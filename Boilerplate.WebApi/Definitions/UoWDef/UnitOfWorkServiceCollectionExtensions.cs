@@ -1,7 +1,7 @@
-﻿using Eshop.Application.Interfaces;
-using Eshop.Persistence.Data;
+﻿using Boilerplate.Application.Interfaces;
+using Boilerplate.Persistence.Data;
 
-namespace Eshop.WebApi.Definitions.UoW
+namespace Boilerplate.WebApi.Definitions.UoW
 {
     public static class UnitOfWorkServiceCollectionExtensions
     {

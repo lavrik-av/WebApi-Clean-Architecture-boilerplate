@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Eshop.Application\Interlocuter.Application.csproj" />
-    <ProjectReference Include="..\Eshop.Persistence\Interlocuter.Persistence.csproj" />
+    <ProjectReference Include="..\Boilerplate.Application\Boilerplate.Application.csproj" />
+    <ProjectReference Include="..\Boilerplate.Persistence\Boilerplate.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

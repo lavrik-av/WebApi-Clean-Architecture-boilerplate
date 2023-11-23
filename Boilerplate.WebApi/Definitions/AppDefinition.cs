@@ -1,6 +1,6 @@
-﻿using Eshop.WebApi.Interfaces;
+﻿using Boilerplate.WebApi.Interfaces;
 
-namespace Eshop.WebApi.Definitions
+namespace Boilerplate.WebApi.Definitions
 {
     public abstract class AppDefinition : IAppDefinition
     {

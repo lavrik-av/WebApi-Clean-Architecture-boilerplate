@@ -3,6 +3,7 @@
     public abstract class CommonConstans
     {
         //Common constants
+        public const string SOMETHING_WENT_WRONG = nameof(SOMETHING_WENT_WRONG);
         public const string BASE_APPLICATION_EXCEPTION = nameof(BASE_APPLICATION_EXCEPTION);
         public const string NOT_FOUND_EXCEPTION = nameof(NOT_FOUND_EXCEPTION);
         public const string UNEXPECTED_ERROR = nameof(UNEXPECTED_ERROR);

@@ -1,14 +1,14 @@
 ﻿using Autofac;
-using Eshop.Application.Interfaces;
-using Eshop.Application.EnititiesCommandsQueries.Search.Queries.SearchEntitiesParameters;
+using Boilerplate.Application.Interfaces;
+using Boilerplate.Application.EnititiesCommandsQueries.Search.Queries.SearchEntitiesParameters;
 using MediatR.Extensions.Autofac.DependencyInjection.Builder;
 using MediatR.Extensions.Autofac.DependencyInjection;
 using System.Reflection;
 using MediatR;
-using Eshop.Domain.Enitities;
+using Boilerplate.Domain.Enitities;
 using AutoMapper;
 
-namespace Eshop.WebApi.GenericTypeMediatR
+namespace Boilerplate.WebApi.GenericTypeMediatR
 {
     public class GenericTypeMediator : IGenericTypeMediator
     {
