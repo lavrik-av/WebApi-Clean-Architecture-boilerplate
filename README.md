@@ -1,5 +1,6 @@
 # Solution boilerplate for Clean Architecture WebApi application
 ### ASP.NET Core >= v.7.x.x
+### EF Core >= v.7.x.x 
 
 
 ## Features
