@@ -3,13 +3,15 @@
 
 
 ## Features
-#### IUnitOfWork
-#### IRepository
-#### Mockup endpoints
-#### MediatR
-#### CQRS
-#### VFluent validation
-##### Identity
-##### MS SQL Server
-#### Exceptions handler
-#### Mapping
+  ##### *EF Core*
+  ##### *CQRS*
+  ##### *IUnitOfWork + UnitOfWork*
+  ##### *IRepository + Repository + Generic repository*
+  ##### *Mockup endpoints with Search*
+  ##### *MediatR*
+  ##### *Fluent validation*
+  ##### *Identity*
+  ##### *Exceptions handler*
+  ##### *Mapping*
+  ##### *MS SQL Server connection*
+
