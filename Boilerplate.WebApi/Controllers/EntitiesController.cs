@@ -7,6 +7,7 @@ using Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.GetProdu
 using Boilerplate.Application.Interfaces;
 using Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.CreateProduct;
 using Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.UpdateProduct;
+using Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.SearchProduct;
 
 namespace Boilerplate.WebApi.Controllers
 {
@@ -55,11 +56,13 @@ namespace Boilerplate.WebApi.Controllers
             return await _sender.Send(new CreateEntityCommand(entity));
         }
 
-        //[HttpPost("search")]
-        //public async Task<OperationResult<IList<EntityDto>>> SearchProducts([FromBody] SearchFilterModel filterModel)
-        //{
-        //    return await _sender.Send(new SearchProductQuery(filterModel));
-        //}
+        [HttpPost("search")]
+        public async Task<OperationResult<IList<EntityDto>>> SearchEntity([FromBody] SearchFilterModel filterModel)
+        {
+            return await _sender.Send(new SearchEntityQuery(filterModel));
+        }
+
+        //TODO add GetAllPagedAsync(GenericRepository) endpoint
 
         //[HttpPost("serch-ext")]
         //public async Task<PagedList<EntityDto>> SearchExt([FromBody] AuxParams auxParams)

@@ -1,4 +1,5 @@
-﻿using Boilerplate.Application.Common.Filters;
+﻿using Boilerplate.Application.Common.Exceptions;
+using Boilerplate.Application.Common.Filters;
 using Boilerplate.Application.Common.Filters.Products;
 using Boilerplate.Application.Common.Filters.SearchHandlers;
 
@@ -57,7 +58,7 @@ namespace Boilerplate.Application.Common.Extensions
                     break;
 
                 default:
-                    throw new NotImplementedException($"The field {searchTerm.Field.ToUpper()} does not exist on the Products table");
+                    throw new SearchTableFieldErrorException(searchTerm.Field.ToUpper());
             }
 
             return handler;

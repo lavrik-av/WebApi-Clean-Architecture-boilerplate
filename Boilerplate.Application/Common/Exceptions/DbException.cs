@@ -5,7 +5,7 @@ namespace Boilerplate.Application.Common.Exceptions
 {
     public class DbException : BaseApplicationException
     {
-        public DbException(Exception exception)
+        public DbException(Exception exception) : base()
         {
             string error = $"{exception.Message}";
 

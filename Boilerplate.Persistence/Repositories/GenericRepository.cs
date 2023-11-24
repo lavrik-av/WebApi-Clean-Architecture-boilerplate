@@ -135,61 +135,6 @@ namespace Boilerplate.Persistence.Repositories
             var result = _dBSet.Update(entity);
             return Task.FromResult((Guid)result.Entity.GetType().GetProperty("Id").GetValue(result.Entity));
         }
-        public async Task<Guid> UpdateAsyncOld(TEntity entity, CancellationToken cancellationToken)
-        {
-
-            Type entityType = entity.GetType();
-
-            var propertyInfo = entityType.GetProperty("Id");
-
-
-            if (propertyInfo != null && entity != null)
-            {
-                var entityId = propertyInfo.GetValue(entity);
-
-                if (entityId != null) 
-                {
-                    var updateEntity = await _dBSet.FindAsync(entityId);
-
-                    var entityProperties = entityType.GetProperties();
-
-                    if (updateEntity != null && entityType != null)
-                    {
-                        var updateEntityType = updateEntity.GetType();
-
-                        if (updateEntityType != null)
-                        {
-                            foreach (var property in entityProperties)
-                            {
-                                if (!property.PropertyType.Name.Contains("List"))
-                                {
-                                    var upPropertyInfo = updateEntityType.GetProperty(property.Name);
-                                    if (upPropertyInfo != null 
-                                        && entityType.GetProperty(property.Name) != null
-                                        ) 
-                                    {
-                                        upPropertyInfo.SetValue(
-                                                updateEntity,
-                                                entityType.GetProperty(property.Name).GetValue(entity)
-                                            );
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    return (Guid)entityId;
-                }
-                else
-                {
-                    throw new NotImplementedException("Generic Repository exception: Cannot obtain an entity's entityId");
-                }
-            }
-            else
-            {
-                throw new NotImplementedException("Generic Repository exception: Cannot obtain an entity's propertyInfo");
-            }
-        }
 
         public async Task<IList<TEntity>> Search(IList<SearchTerm> filters)
         {
