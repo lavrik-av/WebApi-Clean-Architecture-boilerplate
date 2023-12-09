@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
+using Boilerplate.Application.Common.Filters.SearchHandlers.TextHandler;
 
-namespace Boilerplate.Application.Common.Filters.SearchHandlers
+namespace Boilerplate.Application.Common.Filters.SearchHandlers.DatesHandler
 {
 
     public enum DatesComparator
@@ -17,17 +18,19 @@ namespace Boilerplate.Application.Common.Filters.SearchHandlers
 
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
+        public int Comparator { get; set; } = 1;
 
-        public TextComparator Comparator { get; set; } = TextComparator.Contains;
+        private Dictionary<int, string> _comparator = DatesComparatorProvider.GetComparator();
 
         protected override Expression BuildFilterExpression(Expression parameter)
         {
+            //TODO implement full functionality using all the cases: Equals, GreaterThanOrEqual and so on ...
             var olderThanExpr = Expression.GreaterThan(
-                    Expression.Property(parameter, FieldName), 
+                    Expression.Property(parameter, FieldName),
                     Expression.Constant(DateFrom)
                 );
             var newerThanExpr = Expression.LessThan(
-                    Expression.Property(parameter, FieldName), 
+                    Expression.Property(parameter, FieldName),
                     Expression.Constant(DateTo)
                 );
 

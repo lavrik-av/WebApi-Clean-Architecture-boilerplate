@@ -2,11 +2,20 @@
 using Boilerplate.Application.Common.Filters;
 using Boilerplate.Application.Common.Filters.Products;
 using Boilerplate.Application.Common.Filters.SearchHandlers;
+using Boilerplate.Application.Common.Filters.SearchHandlers.DatesHandler;
+using Boilerplate.Application.Common.Filters.SearchHandlers.IntegerHandler;
+using Boilerplate.Application.Common.Filters.SearchHandlers.NumericHandler;
+using Boilerplate.Application.Common.Filters.SearchHandlers.TextHandler;
 
 namespace Boilerplate.Application.Common.Extensions
 {
     public static class SearchExtensions
     {
+        static int test = 1;
+        static SearchExtensions()
+        { 
+
+        }
         public static IQueryable<T> ApplyFilters<T>(this IQueryable<T> query, IList<SearchTerm> filters)
         {
             foreach (var searchHandler in filters.GetSearchHandlers())

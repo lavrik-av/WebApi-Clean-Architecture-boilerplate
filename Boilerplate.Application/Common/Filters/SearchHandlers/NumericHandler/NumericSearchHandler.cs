@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Boilerplate.Application.Common.Filters.SearchHandlers
+namespace Boilerplate.Application.Common.Filters.SearchHandlers.NumericHandler
 {
     public enum NumberComparator
     {
@@ -15,6 +15,7 @@ namespace Boilerplate.Application.Common.Filters.SearchHandlers
     {
         public decimal? SearchTerm { get; set; } = 0;
 
+        //TODO: Remove it and refactor the component
         public NumberComparator Comparator { get; set; } = NumberComparator.Equal;
         protected override Expression BuildFilterExpression(Expression parameter)
         {

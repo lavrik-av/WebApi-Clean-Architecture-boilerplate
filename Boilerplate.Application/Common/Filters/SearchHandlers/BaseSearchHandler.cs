@@ -5,6 +5,7 @@ namespace Boilerplate.Application.Common.Filters.SearchHandlers
     public abstract class BaseSearchHandler
     {
         public string FieldName { get; set; } = string.Empty;
+        public int Comparator { get; set; } = 0;
 
         public IQueryable<T> ApplyFilterToQuery<T>(IQueryable<T> query)
         { 

@@ -2,31 +2,24 @@
 using Boilerplate.Application.Common.Exceptions;
 using System.Linq.Expressions;
 
-namespace Boilerplate.Application.Common.Filters.SearchHandlers
+namespace Boilerplate.Application.Common.Filters.SearchHandlers.TextHandler
 {
-    public enum TextComparator
-    {
-        Equals = 1,
-        NotEqual = 2,
-        Contains = 3
-    }
-
     public class TextSearchHandler : BaseSearchHandler
     {
         public string SearchTerm { get; set; } = string.Empty;
-        public int Comparator { get; set; } = 1;
 
-        private Dictionary<int, string> _innerComparator = new Dictionary<int, string>() { {1, "Equals" }, { 2, "NotEqual" }, { 3, "Contains" } };
+        private Dictionary<int, string> _comparator = TextComparatorProvider.GetComparator();
 
         protected override Expression BuildFilterExpression(Expression parameter)
         {
 
-            if (this.SearchTerm == null) {
+            if (SearchTerm == null)
+            {
                 return Expression.Empty();
             }
             else
             {
-                if (!_innerComparator.ContainsKey(this.Comparator))
+                if (!_comparator.ContainsKey(Comparator))
                 {
                     throw new SearchException(CommonConstans.SEARCH_ERROR_PARAMS_COMPARATOR, CommonConstans.SEARCH_ERROR_WRONG_PARAMETERS_VALUE);
                 }
@@ -34,7 +27,7 @@ namespace Boilerplate.Application.Common.Filters.SearchHandlers
                 {
                     return Expression.Call(
                             Expression.Property(parameter, FieldName),
-                            typeof(string).GetMethod(_innerComparator[this.Comparator], new[] { typeof(string) }),
+                            typeof(string).GetMethod(_comparator[Comparator], new[] { typeof(string) }),
                             Expression.Constant(SearchTerm)
                         );
 
