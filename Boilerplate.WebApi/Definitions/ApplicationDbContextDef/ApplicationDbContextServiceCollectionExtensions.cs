@@ -10,7 +10,7 @@ namespace Boilerplate.WebApi.Definitions.ApplicationDbContextDef
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                //TODO roll it back to just DefaultConnection after pushing it Github
+                // Roll it back to just DefaultConnection after pushing it Github
                 // options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionAzure"));
             });

@@ -42,7 +42,7 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-// TODO uncomment it to disable Swagger at Production
+// Uncomment it to disable Swagger at Production
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

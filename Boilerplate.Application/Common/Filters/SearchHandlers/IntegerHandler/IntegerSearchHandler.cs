@@ -1,14 +1,14 @@
 ﻿using System.Linq.Expressions;
-using Boilerplate.Application.Common.Filters.SearchHandlers.SearchExpressions;
+using Boilerplate.Application.Common.Filters.SearchHandlers.SearchExpressionsHandler;
 
 namespace Boilerplate.Application.Common.Filters.SearchHandlers.IntegerHandler
 {
     public class IntegerSearchHandler : BaseSearchHandler
     {
-        public int SearchTerm { get; set; } = 0;
+        public int SearchTerm { get; set; }
         protected override Expression BuildFilterExpression(Expression parameter)
         {
-            if (parameter == null)
+            if (parameter is null)
             {
                 return Expression.Empty();
             }
@@ -16,7 +16,7 @@ namespace Boilerplate.Application.Common.Filters.SearchHandlers.IntegerHandler
             {
                 if (ExpressionsHandler.Expressions.ContainsKey(Comparator))
                 {
-                    return ExpressionsHandler.Expressions[Comparator].GetExpression(parameter, SearchTerm, FieldName);
+                    return ExpressionsHandler.Expressions[Comparator].GetExpression(parameter, FieldName, SearchTerm);
                 }
 
                 // TODO: replace the text by Constant

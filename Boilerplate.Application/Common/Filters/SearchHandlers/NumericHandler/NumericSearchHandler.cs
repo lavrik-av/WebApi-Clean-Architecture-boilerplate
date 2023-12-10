@@ -1,60 +1,28 @@
 ﻿using System.Linq.Expressions;
+using Boilerplate.Application.Common.Filters.SearchHandlers.SearchExpressionsHandler;
 
 namespace Boilerplate.Application.Common.Filters.SearchHandlers.NumericHandler
 {
-    public enum NumberComparator
-    {
-        Equal = 1,
-        NotEqual = 2,
-        GreaterThan = 3,
-        GreaterThanOrEqual = 4,
-        LessThan = 5,
-        LessThanOrEqual = 6
-    }
     public class NumericSearchHandler : BaseSearchHandler
     {
-        public decimal? SearchTerm { get; set; } = 0;
+        public decimal? SearchTerm { get; set; }
 
-        //TODO: Remove it and refactor the component
-        public NumberComparator Comparator { get; set; } = NumberComparator.Equal;
         protected override Expression BuildFilterExpression(Expression parameter)
         {
-            if (SearchTerm == null)
+            if (SearchTerm is null)
             {
                 return Expression.Empty();
             }
             else
             {
-                return GetExpression(parameter);
+                if (ExpressionsHandler.Expressions.ContainsKey(Comparator))
+                {
+                    return ExpressionsHandler.Expressions[Comparator].GetExpression(parameter, FieldName, SearchTerm);
+                }
+
+                // TODO: replace the text by Constant
+                throw new NotImplementedException($"Wrong Comparator value: {Comparator}, should be an integer value from 1 to 7");
             }
         }
-
-        protected Expression GetExpression(Expression parameter)
-        {
-            switch (Comparator)
-            {
-                case NumberComparator.Equal:
-                    return Expression.Equal(Expression.Property(parameter, FieldName), Expression.Constant(SearchTerm));
-
-                case NumberComparator.NotEqual:
-                    return Expression.NotEqual(Expression.Property(parameter, FieldName), Expression.Constant(SearchTerm));
-
-                case NumberComparator.GreaterThan:
-                    return Expression.GreaterThan(Expression.Property(parameter, FieldName), Expression.Constant(SearchTerm));
-
-                case NumberComparator.GreaterThanOrEqual:
-                    return Expression.GreaterThanOrEqual(Expression.Property(parameter, FieldName), Expression.Constant(SearchTerm));
-
-                case NumberComparator.LessThan:
-                    return Expression.LessThan(Expression.Property(parameter, FieldName), Expression.Constant(SearchTerm));
-
-                case NumberComparator.LessThanOrEqual:
-                    return Expression.LessThanOrEqual(Expression.Property(parameter, FieldName), Expression.Constant(SearchTerm));
-
-                default:
-                    throw new NotImplementedException("Comparator not supported");
-            }
-        }
-
     }
 }
