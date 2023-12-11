@@ -3,9 +3,15 @@ using Boilerplate.Application.Common.Filters.SearchHandlers.SearchExpressionsHan
 
 namespace Boilerplate.Application.Common.Filters.SearchHandlers.IntegerHandler
 {
-    public class IntegerSearchHandler : BaseSearchHandler
+    internal class IntegerSearchHandler : BaseSearchHandler
     {
         public int SearchTerm { get; set; }
+
+        public override void SetHanlerSearchTerms( SearchTerm searchTerm )
+        {            
+            SearchTerm = int.Parse(searchTerm.Term);
+        }
+
         protected override Expression BuildFilterExpression(Expression parameter)
         {
             if (parameter is null)

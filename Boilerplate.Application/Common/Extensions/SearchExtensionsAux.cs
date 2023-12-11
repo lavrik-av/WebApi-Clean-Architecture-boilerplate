@@ -39,7 +39,7 @@ namespace Boilerplate.Application.Common.Extensions
 
             switch (term.Field.ToUpper())
             {
-                // TODO : Remove the switch
+                //TODO : Remove the switch
                 case SearchFieldsConstants.NAME:
                 case SearchFieldsConstants.DESCRIPTION:
                 case SearchFieldsConstants.TITLE:
