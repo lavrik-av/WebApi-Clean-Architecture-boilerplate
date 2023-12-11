@@ -4,9 +4,14 @@ using System.Linq.Expressions;
 
 namespace Boilerplate.Application.Common.Filters.SearchHandlers.TextHandler
 {
-    public class TextSearchHandler : BaseSearchHandler
+    internal class TextSearchHandler : BaseSearchHandler
     {
         public string SearchTerm { get; set; } = string.Empty;
+
+        public override void SetHanlerSearchTerms(SearchTerm searchTerm)
+        {
+            SearchTerm = searchTerm.Term;
+        }
 
         private Dictionary<int, string> _comparator = TextComparatorProvider.GetComparator();
 

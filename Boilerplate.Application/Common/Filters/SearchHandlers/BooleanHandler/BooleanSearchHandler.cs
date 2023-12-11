@@ -2,9 +2,14 @@
 
 namespace Boilerplate.Application.Common.Filters.SearchHandlers.BooleanHandler
 {
-    public class BooleanSearchHandler : BaseSearchHandler
+    internal class BooleanSearchHandler : BaseSearchHandler
     {
         public bool SearchTerm { get; set; }
+
+        public override void SetHanlerSearchTerms(SearchTerm searchTerm)
+        {
+            //TODO: Implement the method
+        }
         protected override Expression BuildFilterExpression(Expression parameter)
         {
             //TODO: Implement the handler

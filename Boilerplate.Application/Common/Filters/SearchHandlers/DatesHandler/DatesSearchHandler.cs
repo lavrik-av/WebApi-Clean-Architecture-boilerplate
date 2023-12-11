@@ -3,10 +3,26 @@ using System.Linq.Expressions;
 
 namespace Boilerplate.Application.Common.Filters.SearchHandlers.DatesHandler
 {
-    public class DatesSearchHandler : BaseSearchHandler
+    internal class DatesSearchHandler : BaseSearchHandler
     {
         public DateTime DateFrom { get; set; }
+
         public DateTime DateTo { get; set; }
+
+        public override void SetHanlerSearchTerms(SearchTerm searchTerm)
+        {
+            //TODO: It needs to set DateFrom to 00:00:00
+            DateFrom =  DateTime.Parse(searchTerm.Term);
+
+            //TODO: It needs to set DateTo to 23:59:59
+            DateTo = DateTime.Parse(searchTerm.Term);
+
+            if (searchTerm.TermAdd is not null)
+            {
+                //TODO: It needs to set DateTo to 23:59:59
+                DateTo = DateTime.Parse(searchTerm.TermAdd);
+            }
+        }
 
         protected override Expression BuildFilterExpression(Expression parameter)
         {
