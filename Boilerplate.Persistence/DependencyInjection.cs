@@ -13,6 +13,11 @@ namespace Boilerplate.Persistence
                 //local MS SQL Server
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
 
+                Console.WriteLine($"=================================");
+                Console.WriteLine($"=============== {configuration.GetConnectionString("DefaultConnection")} ==================");
+                Console.WriteLine($"=================================");
+
+
                 // local MySql server                
                 // options.UseMySQL(configuration.GetConnectionString("MySqlConnection"));
 
