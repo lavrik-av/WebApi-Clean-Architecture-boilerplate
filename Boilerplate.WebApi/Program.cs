@@ -12,6 +12,7 @@ using Boilerplate.WebApi.Middleware;
 using Boilerplate.WebApi.JsonConverters;
 using System.Text.Json.Serialization;
 using Autofac;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 var containerBuilder = new ContainerBuilder();
@@ -41,17 +42,22 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+//Configure Reverse Proxy if it needs
+app.UseForwardedHeaders(new ForwardedHeadersOptions {
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
 
 // Uncomment it to disable Swagger at Production
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseCustomExceptionHandlerMiddleware();
 
-app.UseHttpsRedirection();
+// TODO Uncomment it later
+// app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

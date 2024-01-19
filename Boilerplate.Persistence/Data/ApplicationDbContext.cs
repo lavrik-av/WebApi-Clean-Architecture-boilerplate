@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Boilerplate.Application.Interfaces;
 using Boilerplate.Persistence.EntitiyTypeConfigurations;
-using Boilerplate.Application.EnititiesCommandsQueries.ComplexQuery.Queries;
 using Boilerplate.Domain.Enitities.Entity;
 
 namespace Boilerplate.Persistence.Data
@@ -11,7 +10,6 @@ namespace Boilerplate.Persistence.Data
     public class ApplicationDbContext : IdentityDbContext<IdentityUser>, IApplicationDbContext
     {
         public DbSet<Entity> Entities { get; set; }
-        public DbSet<ComplexQueryModel> QueryEntities { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, bool designTime = false) : base(options)
         {

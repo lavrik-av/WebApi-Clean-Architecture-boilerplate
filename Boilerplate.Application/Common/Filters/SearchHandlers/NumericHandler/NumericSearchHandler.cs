@@ -3,9 +3,14 @@ using Boilerplate.Application.Common.Filters.SearchHandlers.SearchExpressionsHan
 
 namespace Boilerplate.Application.Common.Filters.SearchHandlers.NumericHandler
 {
-    public class NumericSearchHandler : BaseSearchHandler
+    internal class NumericSearchHandler : BaseSearchHandler
     {
         public decimal? SearchTerm { get; set; }
+
+        public override void SetHanlerSearchTerms(SearchTerm searchTerm)
+        {
+            SearchTerm = decimal.Round(decimal.Parse(searchTerm.Term), 2);
+        }
 
         protected override Expression BuildFilterExpression(Expression parameter)
         {

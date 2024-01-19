@@ -139,7 +139,7 @@ namespace Boilerplate.Persistence.Repositories
         public async Task<IList<TEntity>> Search(IList<SearchTerm> filters)
         {
             var entities = await _dBSet
-                .ApplyFilters(filters)
+                // .ApplyFilters(filters) TODO Uncomment it while working on the project
                 .AsNoTracking()
                 .ToListAsync();
 

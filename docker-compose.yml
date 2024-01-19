@@ -1,0 +1,37 @@
+version: '3.4'
+
+networks:
+  BoilerplateWebApi:
+    external: true  
+
+services:
+    
+  MsSqlServer:
+    container_name: MsSqlServerContainer
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    user: root
+    ports:
+        - 5022:1433
+    environment:
+        - ACCEPT_EULA=Y
+        - MSSQL_SA_PASSWORD=TIssen:)
+        - MSSQL_PID=Express
+    command:
+        /bin/bash ./entrypoint.sh
+    volumes:
+        - dbdata:/var/opt/mssql/data
+        - ./CreateDb/docker-entrypoint.sh:/entrypoint.sh
+        - ./CreateDb/boilerplate-db-init.sql:/boilerplate-db-init.sql
+
+  boilerplate.webapi:
+    image: ${DOCKER_REGISTRY-}boilerplatewebapi
+    ports:
+        - 5000:80
+    build:
+      context: .
+      dockerfile: Boilerplate.WebApi/Dockerfile
+    depends_on:
+        - MsSqlServer
+
+volumes:
+    dbdata:

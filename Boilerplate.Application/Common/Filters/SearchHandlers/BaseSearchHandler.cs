@@ -2,10 +2,15 @@
 
 namespace Boilerplate.Application.Common.Filters.SearchHandlers
 {
-    public abstract class BaseSearchHandler
+    internal abstract class BaseSearchHandler
     {
         public string FieldName { get; set; } = string.Empty;
+
         public int Comparator { get; set; } = 0;
+
+        protected abstract Expression BuildFilterExpression(Expression property);
+
+        public abstract void SetHanlerSearchTerms(SearchTerm searchTerm);
 
         public IQueryable<T> ApplyFilterToQuery<T>(IQueryable<T> query)
         { 
@@ -21,8 +26,5 @@ namespace Boilerplate.Application.Common.Filters.SearchHandlers
                 return query.Where(predicate);
             }
         }
-
-        protected abstract Expression BuildFilterExpression(Expression property);
-
     }
 }
