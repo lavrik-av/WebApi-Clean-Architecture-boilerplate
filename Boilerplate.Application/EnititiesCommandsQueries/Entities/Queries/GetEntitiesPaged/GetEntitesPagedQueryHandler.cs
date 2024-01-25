@@ -37,7 +37,7 @@ namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.GetP
                     request.Model.PageIndex, 
                     request.Model.PageSize,
                     GetSortingDictionary(request.Model.Direction)[request.Model.OrderBy.ToUpper()],
-                    Include: request.Model.IncludeJoined ? p => p.Include(m => m.ProductMedia) : include
+                    Include: request.Model.IncludeJoined ? p => p.Include(m => m.EntityMedia) : include
                 );
 
             return OperationResult.CreateResultList<IList<EntityDto>>(

@@ -1,4 +1,4 @@
-#! /bin/bash
+ #! /bin/bash
 echo "starting sql server"
 /opt/mssql/bin/sqlservr &&
 sleep 30s
