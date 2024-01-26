@@ -29,4 +29,8 @@
     <Folder Include="Fixtures\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Boilerplate.WebApi\Boilerplate.WebApi.csproj" />
+  </ItemGroup>
+
 </Project>

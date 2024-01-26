@@ -27,6 +27,8 @@ services:
     image: ${DOCKER_REGISTRY-}boilerplatewebapi
     ports:
         - 5000:80
+    environment:
+        - DOCKER_COMPOSE_MODE=Y
     build:
       context: .
       dockerfile: Boilerplate.WebApi/Dockerfile
