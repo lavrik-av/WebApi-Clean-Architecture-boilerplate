@@ -10,7 +10,7 @@ using Boilerplate.Application.Common.Constants.Entity;
 using Boilerplate.Application.Common.Constants.Common;
 using Boilerplate.Application.Common.Exceptions;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.UpdateProduct
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.UpdateEntity
 {
     public class UpdateEntityCommandHandler : IRequestHandler<UpdateEntityCommand, OperationResult<EntityDto>>
     {

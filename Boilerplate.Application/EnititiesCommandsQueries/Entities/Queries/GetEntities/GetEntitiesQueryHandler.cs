@@ -5,7 +5,7 @@ using Boilerplate.Application.Dto.Entity;
 using Boilerplate.Application.Common;
 using System.Reflection;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.GetProducts
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries.GetEntities
 {
     public class GetEntitiesQueryHandler : IRequestHandler<GetEntitiesQuery, OperationResult<IList<EntityDto>>>
     {

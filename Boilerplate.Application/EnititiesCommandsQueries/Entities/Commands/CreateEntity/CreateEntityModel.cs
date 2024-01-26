@@ -1,4 +1,4 @@
-﻿namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.CreateProduct
+﻿namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.CreateEntity
 {
     public class CreateEntityModel
     {

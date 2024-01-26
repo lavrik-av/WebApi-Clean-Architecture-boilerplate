@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.CreateProduct
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.CreateEntity
 {
-    public class CreateProductCommandValidator : AbstractValidator<CreateEntityCommand>
+    public class CreateEntityCommandValidator : AbstractValidator<CreateEntityCommand>
     {
-        public CreateProductCommandValidator() 
+        public CreateEntityCommandValidator() 
         {
             RuleFor<string>(createProductCommand => createProductCommand.Model.Name)
                 .NotEmpty().MinimumLength(6).MaximumLength(64);

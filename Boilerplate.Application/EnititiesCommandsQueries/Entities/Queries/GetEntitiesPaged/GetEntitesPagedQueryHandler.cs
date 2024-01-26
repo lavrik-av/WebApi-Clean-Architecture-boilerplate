@@ -10,7 +10,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.GetProductsPaged
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries.GetProductsPaged
 {
     public class GetEntitesPagedQueryHandler :
         IRequestHandler<GetEntitiesPagedQuery, OperationResultList<IList<EntityDto>>>

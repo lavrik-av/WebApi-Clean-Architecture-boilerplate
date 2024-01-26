@@ -1,5 +1,6 @@
 ﻿using Boilerplate.Application.Interfaces;
 using Boilerplate.WebApi.Controllers;
+using FluentAssertions;
 using MediatR;
 using Moq;
 using System;
@@ -11,7 +12,7 @@ namespace Boilerplate.UnitTests.Systems.Controllers
     public class TestEntitiesController
     {
         [Fact]
-        internal void GetEntities_OnSuccess()
+        internal async void GetEntities_OnSuccess()
         {
             //Arrange
             // set up the needed dependency
@@ -23,9 +24,11 @@ namespace Boilerplate.UnitTests.Systems.Controllers
             var sut = new EntitiesController(sender.Object, generigTypeMediator.Object);
 
             //Act
-            sut.GetEntities();
+            var result = await sut.GetEntities();
 
             //Assert
+
+            result.Should().Be(200);
         }
     }
 }
