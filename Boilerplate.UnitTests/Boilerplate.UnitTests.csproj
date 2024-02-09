@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="FluentAssertions" Version="6.4.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
     <PackageReference Include="Moq" Version="4.16.1" />
@@ -25,11 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\" />
     <Folder Include="Fixtures\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Boilerplate.Application\Boilerplate.Application.csproj" />
+    <ProjectReference Include="..\Boilerplate.Domain\Boilerplate.Domain.csproj" />
+    <ProjectReference Include="..\Boilerplate.Persistence\Boilerplate.Persistence.csproj" />
     <ProjectReference Include="..\Boilerplate.WebApi\Boilerplate.WebApi.csproj" />
   </ItemGroup>
 

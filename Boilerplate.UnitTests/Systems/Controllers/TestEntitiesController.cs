@@ -1,27 +1,29 @@
-﻿using Boilerplate.Application.Interfaces;
+﻿using Autofac;
+using Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries.GetProduct;
+using Boilerplate.Application.Interfaces;
+using Boilerplate.UnitTests.Helpers;
 using Boilerplate.WebApi.Controllers;
 using FluentAssertions;
 using MediatR;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Boilerplate.UnitTests.Systems.Controllers
 {
     public class TestEntitiesController
     {
+
         [Fact]
-        internal async void GetEntities_OnSuccess()
+        internal async Task GetEntities_OnSuccess()
         {
             //Arrange
-            // set up the needed dependency
-            // ISender sender, IGenericTypeMediator genericTypeMediator
+            var builder = DependencyInjection.RegisterServices();
+            var sender = DependencyInjection.BuildMediatr(builder);
 
-            var sender = new Mock<ISender>();
+            //var sender = new Mock<ISender>();
             var generigTypeMediator = new Mock<IGenericTypeMediator>();
 
-            var sut = new EntitiesController(sender.Object, generigTypeMediator.Object);
+            var sut = new EntitiesController(sender, generigTypeMediator.Object);
 
             //Act
             var result = await sut.GetEntities();

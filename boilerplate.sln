@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boilerplate.WebApi", "Boile
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A3C0EDC2-1A07-47EE-8BF6-DC94253F176C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boilerplate.UnitTests", "Boilerplate.UnitTests\Boilerplate.UnitTests.csproj", "{B0AB48FC-577A-4E53-B5AF-A7225D9ED7F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boilerplate.UnitTests", "Boilerplate.UnitTests\Boilerplate.UnitTests.csproj", "{B0AB48FC-577A-4E53-B5AF-A7225D9ED7F3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9D8E1BC4-BED7-46AC-A30B-01F49F7647A3}"
 EndProject

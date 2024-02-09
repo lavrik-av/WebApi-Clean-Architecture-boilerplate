@@ -14,7 +14,6 @@ namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries.GetE
 
         public GetEntitiesQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            var ass = Assembly.GetExecutingAssembly();
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
