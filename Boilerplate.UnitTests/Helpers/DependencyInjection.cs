@@ -58,11 +58,6 @@ namespace Boilerplate.UnitTests.Helpers
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
         }
 
-        private static MapperConfiguration Test(Type mapperProfile)
-        {
-            return new MapperConfiguration(cfg => cfg.AddProfile(mapperProfile));
-        }
-
         private static void RegisterMapper(ContainerBuilder builder)
         {
             Action<IMapperConfigurationExpression> configureMapper = (IMapperConfigurationExpression cfg) => {
@@ -83,16 +78,6 @@ namespace Boilerplate.UnitTests.Helpers
             builder
                 .RegisterAssemblyTypes(typeof(GetEntityQueryHandler).GetTypeInfo().Assembly)
                 .AsImplementedInterfaces();
-        }
-
-        private static void RegisterMaps(ContainerBuilder builder, AutoMapperProfile profile)
-        {
-            builder.Register(ctx => new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile(new AutoMapperProfile());
-            }));
-
-            builder.Register(ctx => ctx.Resolve<MapperConfiguration>().CreateMapper()).As<IMapper>();
         }
 
         public static IMediator BuildMediatr(ContainerBuilder builder)
