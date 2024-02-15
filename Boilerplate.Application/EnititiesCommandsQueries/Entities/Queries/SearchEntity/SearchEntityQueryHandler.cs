@@ -4,7 +4,7 @@ using MediatR;
 using Boilerplate.Application.Common;
 using Boilerplate.Application.Dto.Entity;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.SearchProduct
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries.SearchEntity
 {
 
     public class SearchEntityQueryHandler : IRequestHandler<SearchEntityQuery, OperationResult<IList<EntityDto>>>

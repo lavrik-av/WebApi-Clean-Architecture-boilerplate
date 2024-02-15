@@ -1,5 +1,4 @@
-﻿using Autofac;
-using Boilerplate.Application.Common.Behavior;
+﻿using Boilerplate.Application.Common.Behavior;
 using FluentValidation;
 using MediatR;
 using System.Reflection;

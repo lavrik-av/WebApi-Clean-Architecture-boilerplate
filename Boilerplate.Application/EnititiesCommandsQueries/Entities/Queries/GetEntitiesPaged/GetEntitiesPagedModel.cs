@@ -1,7 +1,7 @@
 ﻿using Boilerplate.Application.Common.Filters;
 using Boilerplate.Application.Common.Filters.Products;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.GetProductsPaged
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries.GetProductsPaged
 {
     public class GetEntitiesPagedModel
     {

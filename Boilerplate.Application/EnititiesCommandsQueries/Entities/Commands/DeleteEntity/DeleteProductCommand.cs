@@ -2,9 +2,9 @@
 using MediatR;
 using Boilerplate.Application.Common;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.DeleteProduct
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.DeleteEntity
 {
-    public record DeleteProductCommand(DeleteProductModel Model) : IRequest<OperationResult<EmptyResult>>
+    public record DeleteEntityCommand(DeleteEntityModel Model) : IRequest<OperationResult<EmptyResult>>
     {
     }
 }

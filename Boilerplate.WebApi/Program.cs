@@ -11,11 +11,11 @@ using Boilerplate.Persistence;
 using Boilerplate.WebApi.Middleware;
 using Boilerplate.WebApi.JsonConverters;
 using System.Text.Json.Serialization;
-using Autofac;
+// using Autofac;
 using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
-var containerBuilder = new ContainerBuilder();
+// var containerBuilder = new ContainerBuilder();
 
 // Add definitions for the application
 builder.Services.AddDefinitions(builder, typeof(Program));

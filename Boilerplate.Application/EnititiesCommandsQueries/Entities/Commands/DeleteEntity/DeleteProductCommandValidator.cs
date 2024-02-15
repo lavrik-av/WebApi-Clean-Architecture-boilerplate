@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.DeleteProduct
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.DeleteEntity
 {
-    public class DeleteProductCommandValidator : AbstractValidator<DeleteProductCommand>
+    public class DeleteEntityCommandValidator : AbstractValidator<DeleteEntityCommand>
     {
-        public DeleteProductCommandValidator()
+        public DeleteEntityCommandValidator()
         {
             RuleFor(command => command.Model.Id)
                 .NotEmpty();

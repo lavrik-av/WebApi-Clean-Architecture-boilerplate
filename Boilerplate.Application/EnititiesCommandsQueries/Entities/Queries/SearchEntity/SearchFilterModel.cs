@@ -1,6 +1,6 @@
 ﻿using Boilerplate.Application.Common.Filters;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.SearchProduct
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries.SearchEntity
 {
     public class SearchFilterModel
     {

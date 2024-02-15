@@ -2,7 +2,7 @@
 using Boilerplate.Application.Dto.Entity;
 using MediatR;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.UpdateProduct
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.UpdateEntity
 {
     public record UpdateEntityCommand(UpdateEntityModel Model)
         : IRequest<OperationResult<EntityDto>>

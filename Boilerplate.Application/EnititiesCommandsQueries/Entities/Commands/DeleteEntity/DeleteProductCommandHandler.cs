@@ -5,18 +5,18 @@ using Boilerplate.Application.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.DeleteProduct
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.DeleteEntity
 {
-    public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand, OperationResult<EmptyResult>>
+    public class DeleteEntityCommandHandler : IRequestHandler<DeleteEntityCommand, OperationResult<EmptyResult>>
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteProductCommandHandler(IUnitOfWork unitOfWork)
+        public DeleteEntityCommandHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<OperationResult<EmptyResult>> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
+        public async Task<OperationResult<EmptyResult>> Handle(DeleteEntityCommand request, CancellationToken cancellationToken)
         {
             var result = await _unitOfWork.EntitiesRepository.DeleteAsync(request.Model.Id, cancellationToken);
 

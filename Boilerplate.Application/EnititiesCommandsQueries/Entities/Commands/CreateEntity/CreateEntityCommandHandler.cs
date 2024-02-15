@@ -9,7 +9,7 @@ using Boilerplate.Domain.Enitities.Entity;
 using MediatR;
 using System;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.CreateProduct
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.CreateEntity
 {
     public class CreateEntityCommandHandler
         : IRequestHandler<CreateEntityCommand, OperationResult<EntityDto>>

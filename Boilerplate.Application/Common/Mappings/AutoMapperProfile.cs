@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Boilerplate.Application.Dto.Entity;
-using Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.CreateProduct;
-using Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.UpdateProduct;
+using Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.CreateEntity;
+using Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.UpdateEntity;
 using Boilerplate.Domain.Enitities.Entity;
 
 namespace Boilerplate.Application.Common.Mappings

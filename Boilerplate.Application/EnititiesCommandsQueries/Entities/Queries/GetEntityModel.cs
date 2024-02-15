@@ -1,4 +1,4 @@
-﻿namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Queries
+﻿namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries
 {
     public class GetEntityModel
     {

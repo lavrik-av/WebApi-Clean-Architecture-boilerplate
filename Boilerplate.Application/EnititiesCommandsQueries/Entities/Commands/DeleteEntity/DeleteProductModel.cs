@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.DeleteProduct
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.DeleteEntity
 {
-    public class DeleteProductModel
+    public class DeleteEntityModel
     {
         [Required]
         public Guid Id { get; set; }

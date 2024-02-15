@@ -7,7 +7,7 @@ using Boilerplate.Domain.Enitities.Entity;
 
 namespace Boilerplate.Persistence.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>, IApplicationDbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         public DbSet<Entity> Entities { get; set; }
 

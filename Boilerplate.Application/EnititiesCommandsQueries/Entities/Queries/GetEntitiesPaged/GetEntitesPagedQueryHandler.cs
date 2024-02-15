@@ -10,7 +10,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.GetProductsPaged
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries.GetProductsPaged
 {
     public class GetEntitesPagedQueryHandler :
         IRequestHandler<GetEntitiesPagedQuery, OperationResultList<IList<EntityDto>>>
@@ -37,7 +37,7 @@ namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.GetP
                     request.Model.PageIndex, 
                     request.Model.PageSize,
                     GetSortingDictionary(request.Model.Direction)[request.Model.OrderBy.ToUpper()],
-                    Include: request.Model.IncludeJoined ? p => p.Include(m => m.ProductMedia) : include
+                    Include: request.Model.IncludeJoined ? p => p.Include(m => m.EntityMedia) : include
                 );
 
             return OperationResult.CreateResultList<IList<EntityDto>>(

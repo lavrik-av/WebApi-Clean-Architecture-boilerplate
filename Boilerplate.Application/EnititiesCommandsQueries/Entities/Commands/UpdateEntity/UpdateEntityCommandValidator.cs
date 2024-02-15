@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.UpdateProduct
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.UpdateEntity
 {
     public class UpdateEntityCommandValidator : AbstractValidator<UpdateEntityCommand>
     {

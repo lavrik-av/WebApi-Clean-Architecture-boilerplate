@@ -7,7 +7,7 @@ using Boilerplate.Application.Interfaces;
 
 using MediatR;
 
-namespace Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.GetProduct
+namespace Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries.GetProduct
 {
     public class GetEntityQueryHandler : IRequestHandler<GetEntityQuery, OperationResult<EntityDto>>
     {

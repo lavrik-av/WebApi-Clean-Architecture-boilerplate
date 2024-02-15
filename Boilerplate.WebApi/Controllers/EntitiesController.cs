@@ -3,11 +3,11 @@ using MediatR;
 using Autofac;
 using Boilerplate.Application.Dto.Entity;
 using Boilerplate.Application.Common;
-using Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.GetProducts;
+using Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries.GetEntities;
 using Boilerplate.Application.Interfaces;
-using Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.CreateProduct;
-using Boilerplate.Application.EnititiesCommandsQueries.Products.Commands.UpdateProduct;
-using Boilerplate.Application.EnititiesCommandsQueries.Products.Queries.SearchProduct;
+using Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.CreateEntity;
+using Boilerplate.Application.EnititiesCommandsQueries.Enteties.Commands.UpdateEntity;
+using Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries.SearchEntity;
 
 namespace Boilerplate.WebApi.Controllers
 {
@@ -71,9 +71,9 @@ namespace Boilerplate.WebApi.Controllers
         //}
 
         //[HttpDelete("delete")]
-        //public async Task<OperationResult<EmptyResult>> DeleteAsync([FromBody] DeleteProductModel product)
+        //public async Task<OperationResult<EmptyResult>> DeleteAsync([FromBody] DeleteEntityModel product)
         //{
-        //    return await _sender.Send(new DeleteProductCommand(product) );
+        //    return await _sender.Send(new DeleteEntityCommand(product) );
         //}
 
     }

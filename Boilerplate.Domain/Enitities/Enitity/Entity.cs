@@ -13,6 +13,6 @@ namespace Boilerplate.Domain.Enitities.Entity
         public DateTime Created { get; set; } = DateTime.Now;
         public int Quantity { get; set; } = 0;
         [JsonIgnore]
-        public List<EntityMedia>? ProductMedia { get; set; }
+        public List<EntityMedia>? EntityMedia { get; set; }
     }
 }
