@@ -1,12 +1,9 @@
-﻿using Autofac;
-using Boilerplate.Application.EnititiesCommandsQueries.Enteties.Queries.GetProduct;
+﻿using Boilerplate.Application.Dto.Entity;
 using Boilerplate.Application.Interfaces;
 using Boilerplate.UnitTests.Helpers;
 using Boilerplate.WebApi.Controllers;
 using FluentAssertions;
-using MediatR;
 using Moq;
-using System.Reflection;
 
 namespace Boilerplate.UnitTests.Systems.Controllers
 {
@@ -20,17 +17,28 @@ namespace Boilerplate.UnitTests.Systems.Controllers
             var builder = DependencyInjection.RegisterServices();
             var sender = DependencyInjection.BuildMediatr(builder);
 
-            //var sender = new Mock<ISender>();
             var generigTypeMediator = new Mock<IGenericTypeMediator>();
 
             var sut = new EntitiesController(sender, generigTypeMediator.Object);
 
             //Act
             var result = await sut.GetEntities();
+            IList<EntityDto>? data;
 
-            //Assert
+            if (result.Data == null)
+            {
+                result.Data.Should().NotBeEmpty();
+            }
+            else
+            {
+                data = result.Data;
 
-            result.Should().Be(200);
+                result.Data
+                    .Should()
+                    .NotBeEmpty()
+                    .And.HaveCountGreaterThan(0)
+                    .And.ContainItemsAssignableTo<EntityDto>();
+            }
         }
     }
 }
